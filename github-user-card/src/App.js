@@ -8,7 +8,7 @@ class App extends React.Component {
 		super();
 		this.state = {
 			user: {},
-			followers: ''
+			followers: []
 		}
 	}
 
@@ -19,7 +19,18 @@ class App extends React.Component {
 				this.setState({ 
 					user: res.data
 				})
-				console.log(this.state)
+				// console.log(this.state.user)
+			})
+			.catch(error => {
+				console.error('Server Error', error);
+			});
+		axios 
+			.get('https://api.github.com/users/rabithole/followers')
+			.then(res => {
+				this.setState({ 
+					followers: res.data
+				})
+				// console.log(this.state.followers)
 			})
 			.catch(error => {
 				console.error('Server Error', error);
@@ -30,10 +41,10 @@ class App extends React.Component {
 	  return (
 	    <div className="App">
 	      	<header className="App-header">
-	       		<h1>Something else will go here</h1>
+	       		<h1>Github User</h1>
 	       			<User 
 	       				user={this.state.user}
-
+	       				followers={this.state.followers}
 	       			/>
 	      	</header>
 	    </div>
