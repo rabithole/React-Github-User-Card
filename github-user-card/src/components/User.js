@@ -1,23 +1,23 @@
 import React from 'react';
 
 const User = props => {
-  console.log(props)
+  console.log(props.user)
   return (
     <div>
       <h2>My list of User!</h2>
-     {props.user.map(item => (
-        <p key={Math.floor(Math.random() * 10000) + 10} className='personLeft'>
-          <strong>Name:</strong>  {`${item.name}`} <br/>
-           <strong>Age:</strong> {`${item.age}`} <br/>
-           <strong>Email:</strong> {`${item.email}`}
-           <button onClick={e => props.deleteItem(e, item)}>Delete Friend</button>
-        </p>
-      ))}
-      <p>{props.name}</p>
+      
+      <p>{props.user.name}</p>
     </div>
   )
 };
 
 export default User;
+
+
+{props.user.map((item, index) => ( // index is the index of the array that is being map
+        <p key={index}>
+          
+        </p>
+      ))}
 
  
