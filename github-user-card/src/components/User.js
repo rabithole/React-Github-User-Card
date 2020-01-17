@@ -1,6 +1,7 @@
 import React from 'react';
 
 const User = props => {
+  console.log(props.followers);
   return (
     <div className='githubuser'>
       <h2>User Name</h2>
